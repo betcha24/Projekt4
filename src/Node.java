@@ -1,7 +1,8 @@
 
 /**
- * Trida pro vytvoreni vrcholu
- * @author Martina
+ * Trida pro vytvoreni vrcholu.
+ * @author Martina Bečaverová
+ * @since 2017
   */
 public class Node {
 

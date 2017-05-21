@@ -1,19 +1,36 @@
-
-
-
 import javafx.scene.canvas.GraphicsContext;
 
 /**
  * Trida pro vykresleni stromu do grafickeho kontextu
- * @author Martina
+ * @author Martina Bečaverová
+ * @since 2017
  */
+
 public final class DrawTree {
-    public AVLTree tree;
-    GraphicsContext gc;
+    /**
+     * Strom, který se ma vykreslit.
+     */
+    private final AVLTree tree;
+    /**
+     * Grafický okno, do kterého kreslime.
+     **/
+    private final GraphicsContext gc;
+    /**
+     * Šířka okna.
+     */
     private final int width;
+    /**
+     *Výška okna.
+     **/
     private final int height;
-    private final int radius = 15; // Tree node radius
-    private final int vGap = 50; // Gap between two levels in a tree
+    /**
+     *Radius pro vrchol
+     */
+    private final int radius = 15; 
+    /***
+     *Výška mezi 2 hloubkama vrcholů
+     */
+    private final int vGap = 50;
     
     /**
      * Konstruktor pro vykresleni vola metodu DrawTree()

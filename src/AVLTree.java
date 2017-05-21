@@ -1,16 +1,9 @@
 
-import java.util.concurrent.BlockingQueue;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 
 /**
- * Trida pro vytvoreni stromu
- * @author Martina
+ * Trida pro vytvoreni stromu.
+ *@author Martina Bečaverová
+ * @since 2017
  */
 public class AVLTree{
     

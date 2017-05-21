@@ -2,8 +2,6 @@
 import java.util.concurrent.BlockingQueue;
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.beans.InvalidationListener;
-import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
@@ -23,16 +21,19 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /**
+ * .Hlavní třída pro pro ukázku práce s vlákny.
  *
- * @author ACER
+ * @author Martina Bečaverová
+ * @version 1.0
+ * @since 2017
  */
 public class Main extends Application {
 
     public BlockingQueue<String> queue;
-    String poc;
-    //slider
+    public String poc;
+    
     public Slider time;
-    MyThreads threads;
+    public MyThreads threads;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -59,8 +60,7 @@ public class Main extends Application {
         Label label3 = new Label();
         grid.add(label3, 5, 0);
         borderPane.setTop(grid);
-        
-       //if (threads!=null){ label3.setText(threads.producer.getCislo());}
+        //label3.setText(threads.producer.cislo);
        
         VBox box = new VBox();
 
@@ -69,6 +69,7 @@ public class Main extends Application {
         
         time.valueProperty().addListener((ObservableValue<? extends Number> ov, Number old_val, Number new_val) -> {
             threads.producer.setTime(new_val.intValue());
+            threads.consument.setTime(new_val.intValue());
 
         });
         time.setShowTickMarks(true);
@@ -78,10 +79,10 @@ public class Main extends Application {
         nodesBT.setOnAction((ActionEvent event) -> {
             // TODO Auto-generated method stub
             poc = nodesTF.getText();
-            if (poc.isEmpty()) {
+            if (poc.isEmpty() || !poc.matches("[0-9]+")) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error Dialog");
-                alert.setHeaderText("Nevyplnil jsi všechny pole");
+                alert.setHeaderText("Špatnej vstup");
                 alert.setContentText("Prosím vyplň všechna pole");
                 alert.show();
             } else {
@@ -90,9 +91,7 @@ public class Main extends Application {
             }
         });
         generateBT.setOnAction((ActionEvent event) -> {
-
             threads = new MyThreads(primaryStage, gc);
-            
         });
 
         root.getChildren().add(borderPane);
