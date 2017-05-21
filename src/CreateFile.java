@@ -14,7 +14,7 @@ import javafx.stage.Stage;
  * @author Martina Bečaverová
  * @since 2017
  */
-public class CreateFile implements Runnable {
+public class CreateFile implements Runnable{
 
     /**
      * Soubor.

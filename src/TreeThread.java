@@ -61,11 +61,11 @@ public class TreeThread implements Runnable {
     public void Tree() {
         String cislo;
         try {
-            while (!queue.isEmpty() || (ReadMyFile.done != false)) {
+            while (!queue.isEmpty() || ReadMyFile.done != true) {
                 cislo = queue.take();
                 tree.insert(Integer.parseInt(cislo));
                 drTree = new DrawTree(gc, tree);
-                Thread.currentThread().sleep(time);
+                Thread.sleep(time);
             }
         } catch (InterruptedException ex) {
             ex.printStackTrace();

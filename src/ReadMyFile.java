@@ -30,7 +30,7 @@ public class ReadMyFile implements Runnable {
     /**
      * Konec souboru.
      **/
-    public  static boolean done = false;
+    public static boolean done = false;
     
     /**
      * Počítadlo vláken.
@@ -75,6 +75,7 @@ public class ReadMyFile implements Runnable {
             while ((cislo = in.readLine()) != null) {
                 try {
                     queue.put(cislo); //přídá vrchol do souborů
+                    //System.out.println(cislo);
                     Thread.currentThread().sleep(time);
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
